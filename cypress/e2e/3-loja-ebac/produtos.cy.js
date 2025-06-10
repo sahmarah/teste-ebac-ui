@@ -1,21 +1,28 @@
 ///<reference types="cypress"/>
+import produtosPage from "../../support/page-objects/produtos.page";
 
 describe('Funcionalidade: Produtos', () => {
     
     beforeEach(() => {
-        cy.visit('produtos')
+        produtosPage.visitaUrl
     });
     
-    it('Deve seylecionar um produto da lista', () => {
-        cy.get('.products > .row')
-        //.first()
-        //.last()
-        //.eq(2)
-        .contains('Ariel Roll Sleeve Sweatshirt')
-        .click()
-
+    it.only('Deve selecionar um produto da lista', () => {
+        produtosPage.buscarProdutoLista('Stellar Solar Jacket')
         cy.get('#tab-title-description > a').should('contain' , 'Descrição')
 
 
+    });
+
+    it('Deve buscar um produto com sucesso', () => {
+        produtosPage.buscarProduto('')
+    });
+
+    it('Deve visitar a página do produto', () => {
+        
+    });
+
+    it('Deve adicionar produto ao carrinho', () => {
+        
     });
 });
