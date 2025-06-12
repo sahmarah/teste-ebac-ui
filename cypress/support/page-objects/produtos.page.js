@@ -9,7 +9,7 @@ class ProdutosPage{
     }
 
     buscarProdutoLista(nomeProduto){
-        cy.get('.products  >.row')
+        cy.get('.products > .row')
         .contains(nomeProduto)
         .click()
     }
